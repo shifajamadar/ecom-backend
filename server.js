@@ -1,12 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cookieparser = require("cookie-parser");
 const productRoutes = require("./routes/ProductRoutes");
 const authRoutes = require("./routes/authRoutes");
 
 dotenv.config();
 const app = express();
 app.use(express.json());
+app.use(cookieparser());
 
 app.use("/", productRoutes);
 
